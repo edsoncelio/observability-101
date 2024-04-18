@@ -27,10 +27,10 @@ jobs:
           node-version: 'lts/*'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install @slidev/cli
 
       - name: Build
-        run: npm run build -- --base /observability-101/
+        run: npx slidev build --base=/observability-101/
 
       - uses: actions/configure-pages@v4
 
