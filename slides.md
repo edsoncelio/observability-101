@@ -152,9 +152,7 @@ A span represents a unit of work or operation. Spans are the building blocks of 
     {
       "name": "Guten Morgen!",
       "timestamp": "2022-04-29T18:52:58.114561Z",
-    }
-  ]
-}
+  ....
 
 ```
 
@@ -184,7 +182,7 @@ level: 2
 }
 </style>
 
-![otel logo](public/otel-logo.png){width=40%}
+![otel logo](public/otel-logo.png){width=34%}
 
 ---
 transition: slide-left
@@ -249,8 +247,9 @@ level: 2
 
 <style>
   img {
-  display: block;
-}
+    display: block;
+    margin: auto;
+  }
 </style>
 
 ![grafana grot](public/grafana-grot.svg){width=20%}
