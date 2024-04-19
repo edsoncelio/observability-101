@@ -287,13 +287,10 @@ Visualização dos dados, faz parte da stack opensource da Grafana Labs
 }
 </style>
 
-![grafana](/public/grafana-dashboard.png){width=80%}
-
-<footer>
+![grafana](/public/grafana-dashboard.png){width=76%}
 
 [https://grafana.com/docs/grafana/](https://grafana.com/docs/grafana/latest/)
 
-</footer>
 
 ---
 transition: slide-left
