@@ -182,7 +182,7 @@ level: 2
 }
 </style>
 
-![otel logo](public/otel-logo.png){width=34%}
+![otel logo](/public/otel-logo.png){width=34%}
 
 ---
 transition: slide-left
@@ -252,7 +252,7 @@ level: 2
   }
 </style>
 
-![grafana grot](public/grafana-grot.svg){width=20%}
+![grafana grot](/public/grafana-grot.svg){width=20%}
 
 ---
 transition: slide-left
