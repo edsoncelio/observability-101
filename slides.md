@@ -389,3 +389,5 @@ hideInToc: true
 <br>
 
 ![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHl4OGZic3V6NndmY2RiN2UxYmlxbWcxMHZpZGVuY2x4YmxjNnViYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUPOqo6E1XvWXwlCyQ/giphy.gif)
+
+[edsoncelio.dev/observability-101](https://edsoncelio.dev/observability-101)
