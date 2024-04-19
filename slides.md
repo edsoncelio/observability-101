@@ -14,10 +14,17 @@ Tudo (ou quase tudo) que você precisa saber sobre o assunto :)
 
 <br>
 
-<!-- ![Chiquinha - "posso fazer uma observação?"](https://i.makeagif.com/media/4-17-2017/RxTDJa.gif) -->
+<style>
+  img {
+  float: right;
+  width: 40%;
+}
+</style>
+
+![Chiquinha - "posso fazer uma observação?"](https://i.makeagif.com/media/4-17-2017/RxTDJa.gif)
 
 <div class="abs-br m-6 flex gap-2">
-  <a href="https://github.com/edsoncelio/talks" target="_blank" alt="GitHub" title="Open in GitHub"
+  <a href="https://github.com/edsoncelio/observability-101" target="_blank" alt="GitHub" title="Open in GitHub"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-logo-github />
   </a>
@@ -88,11 +95,12 @@ layout: section
 level: 1
 ---
 
-# Pilares da Observabilidade
+# Pilares
 
 ---
 transition: slide-left
-level: 2
+hideInToc: true
+level: 3
 ---
 
 # Logs
@@ -107,7 +115,7 @@ I, [2021-02-23T13:26:23.505892 #22473]  INFO -- : [6459ffe1-ea53-4044-aaa3-bf902
 
 ---
 transition: slide-left
-level: 2
+level: 3
 ---
 
 # Métricas
@@ -121,7 +129,7 @@ avg(rate(node_cpu{job="default/node-exporter",mode="idle"}[1m]))
 ```
 ---
 transition: slide-left
-level: 2
+level: 3
 ---
 
 # Rastros (traces)
@@ -156,14 +164,34 @@ layout: section
 level: 1
 ---
 
-# Projeto OpenTelemetry (OTEL)
+
+# Ferramentas e Frameworks
 
 ---
 transition: slide-left
-level: 1
+layout: section
+level: 2
 ---
 
-¹O OpenTelemetry é um **framework de Observabilidade** projetado para **criar e gerenciar dados de telemetria**, como rastros, métricas e logs. Por design, o OpenTelemetry é **agnóstico a fornecedor e ferramenta**, o que significa que pode ser usado com grande variedade de backends de Observabilidade.
+
+# Projeto OpenTelemetry (OTEL)
+
+<style>
+  img {
+  display: block;
+  margin: auto;
+
+}
+</style>
+
+![otel logo](public/otel-logo.png){width=40%}
+
+---
+transition: slide-left
+level: 2
+---
+
+O OpenTelemetry é um **framework de Observabilidade** projetado para **criar e gerenciar dados de telemetria**, como rastros, métricas e logs. Por design, o OpenTelemetry é **agnóstico a fornecedor e ferramenta**, o que significa que pode ser usado com grande variedade de backends de Observabilidade.
 
 O OpenTelemetry satisfaz a necessidade de observabilidade ao mesmo tempo que segue dois princípios fundamentais:
 
@@ -176,37 +204,56 @@ O OpenTelemetry satisfaz a necessidade de observabilidade ao mesmo tempo que seg
 
 <footer>
 
-¹[https://opentelemetry.io/docs/what-is-opentelemetry/](https://opentelemetry.io/docs/what-is-opentelemetry/)
+[https://opentelemetry.io/](https://opentelemetry.io/docs/)
 
 </footer>
 
 ---
 transition: slide-left
-hideInToc: true
-level: 1
+level: 3
 ---
 
-## Componentes do OpenTelemetry (OTEL)
+## Arquitetura
+
+<style>
+  img {
+  display: block;
+  margin: auto;
+}
+</style>
+
+![otel](/public/otel.png){width=75%}
+
+---
+transition: slide-left
+hideInToc: true
+level: 3
+---
+
+## Componentes
 
 <br>
 
-- A specification for all components
-- A standard protocol that defines the shape of telemetry data
-- Semantic conventions that define a standard naming scheme for common telemetry data types
-- APIs that define how to generate telemetry data
-- Language SDKs that implement the specification, APIs, and export of telemetry data
-- A library ecosystem that implements instrumentation for common libraries and frameworks
-- Automatic instrumentation components that generate telemetry data without requiring code changes
-- The OpenTelemetry Collector, a proxy that receives, processes, and exports telemetry data
-- Various other tools, such as the OpenTelemetry Operator for Kubernetes, OpenTelemetry Helm Charts, and community assets for FaaS
+- Especificação para todos os componentes
+- Collector
+- Implementações de API e SDK específicas para cada linguagem
+- Outras ferramentas, como Operator do Kubernetes, Helm Charts e outros recursos para FaaS
 
 ---
 transition: slide-left
 layout: section
-level: 1
+level: 2
 ---
 
 # Stack da Grafana Labs
+
+<style>
+  img {
+  display: block;
+}
+</style>
+
+![grafana grot](public/grafana-grot.svg){width=20%}
 
 ---
 transition: slide-left
@@ -217,6 +264,14 @@ level: 3
 # Loki
 Indexador de logs, faz parte da stack opensource da Grafana Labs
 
+
+<footer>
+
+[https://grafana.com/docs/loki/](https://grafana.com/docs/loki/latest/)
+
+</footer>
+
+
 ---
 transition: slide-left
 level: 3
@@ -226,7 +281,20 @@ level: 3
 Visualização dos dados, faz parte da stack opensource da Grafana Labs
 <br>
 
+<style>
+  img {
+  display: block;
+  margin: auto;
+}
+</style>
+
 ![grafana](/public/grafana-dashboard.png){width=80%}
+
+<footer>
+
+[https://grafana.com/docs/grafana/](https://grafana.com/docs/grafana/latest/)
+
+</footer>
 
 ---
 transition: slide-left
@@ -236,6 +304,13 @@ level: 3
 # Tempo
 Backend para rastreamento distribuido, faz parte da stack opensource da Grafana Labs
 
+
+<footer>
+
+[https://grafana.com/docs/tempo/](https://grafana.com/docs/tempo/latest/)
+
+</footer>
+
 ---
 transition: slide-left
 level: 3
@@ -243,6 +318,12 @@ level: 3
 
 # Mimir
 Armazenamento de métricas, faz parte da stack opensource da Grafana Labs
+
+<footer>
+
+[https://grafana.com/docs/mimir/](https://grafana.com/docs/mimir/latest/)
+
+</footer>
 
 ---
 transition: slide-left
@@ -252,13 +333,28 @@ level: 3
 # Beyla
 Auto instrumentação baseada em eBPF, faz parte da stack opensource da Grafana Labs
 
+<footer>
+
+[https://grafana.com/docs/beyla/](https://grafana.com/docs/beyla/latest/)
+
+</footer>
+
 ---
 transition: slide-left
 layout: section
-level: 1
+level: 2
 ---
 
 # Prometheus
+
+<style>
+  img {
+  display: block;
+  margin: auto;
+}
+</style>
+
+![prometheus](/public/prometheus.png){width=8%}
 
 ---
 transition: slide-left
@@ -268,6 +364,14 @@ level: 3
 
 # Prometheus
 Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud.
+
+
+<footer>
+
+[https://prometheus.io/docs/introduction/overview/](https://prometheus.io/docs/introduction/overview/)
+
+</footer>
+
 
 ---
 transition: slide-left
