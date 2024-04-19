@@ -152,24 +152,33 @@ A span represents a unit of work or operation. Spans are the building blocks of 
 
 ---
 transition: slide-left
+layout: section
 level: 1
 ---
 
-# Metodologias de Monitoramento
-- RED
-- USE
-- The Four Golden Signals
+# Projeto OpenTelemetry (OTEL)
 
 ---
 transition: slide-left
 level: 1
 ---
 
-# Projeto OpenTelemetry (OTEL)
-OpenTelemetry satisfies the need for observability while following two key principles:
+¹O OpenTelemetry é um **framework de Observabilidade** projetado para **criar e gerenciar dados de telemetria**, como rastros, métricas e logs. Por design, o OpenTelemetry é **agnóstico a fornecedor e ferramenta**, o que significa que pode ser usado com grande variedade de backends de Observabilidade.
 
-- You own the data that you generate. There’s no vendor lock-in.
-- You only have to learn a single set of APIs and conventions.
+O OpenTelemetry satisfaz a necessidade de observabilidade ao mesmo tempo que segue dois princípios fundamentais:
+
+- Você possui os dados que você gera. Não há dependência de fornecedor (o famoso vendor lock-in).
+- Você só precisa aprender um único conjunto de APIs e convenções.
+
+<br>
+<br>
+<br>
+
+<footer>
+
+¹[https://opentelemetry.io/docs/what-is-opentelemetry/](https://opentelemetry.io/docs/what-is-opentelemetry/)
+
+</footer>
 
 ---
 transition: slide-left
