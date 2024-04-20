@@ -61,14 +61,37 @@ hideInToc: true
 
 ---
 transition: slide-left
-layout: fact
+layout: section
+level: 1
+---
+
+# O Problema
+
+<style>
+  img {
+  display: block;
+  float: right;
+
+}
+</style>
+
+<br>
+<br>
+
+![crazy](/public/crazy.gif){width=30%}
+
+
+---
+transition: slide-left
+layout: quote
 level: 1
 hideInToc: true
 ---
 
-# "Hope is not a strategy."
-
-[Traditional SRE saying](https://sre.google/sre-book/introduction/)
+- Muitos serviços se comunicando em diferentes linguagens com diferentes arquiteturas
+- Falta de visibilidade do que está acontecendo
+- Trabalho de detetive para identificar problemas
+- Ações reativas mais que proativas
 
 ---
 transition: slide-left
@@ -85,9 +108,9 @@ level: 1
 hideInToc: true
 ---
 
-"Observabilidade é a capacidade de compreender o estado interno de um sistema examinando suas saídas. No contexto do software, isso significa ser capaz de compreender o estado interno de um sistema examinando seus dados de telemetria, que incluem rastros, métricas e logs ."
+"Observabilidade é a capacidade de medir os estados internos de um sistema examinando suas saídas."
 
-"Para tornar um sistema observável, ele deve ser instrumentado. Ou seja, o código deve emitir rastros, métricas ou logs. Os dados instrumentados devem então ser enviados para um backend de observabilidade."
+"A observabilidade nos permite compreender um sistema a partir do exterior, permitindo fazer perguntas sobre esse sistema sem conhecer o seu funcionamento interno. Além disso, permite solucionar facilmente e lidar com novos problemas e ajuda a responder à pergunta: “Por que isso está acontecendo?"
 
 ---
 transition: slide-left
@@ -95,7 +118,7 @@ layout: section
 level: 1
 ---
 
-# Pilares
+# Dados de Telemetria Importantes de Conhecer
 
 ---
 transition: slide-left
@@ -120,41 +143,46 @@ level: 3
 
 # Métricas
 
-Uma métrica é uma medida de um serviço capturado em tempo de execução. O momento de captura de uma medida é conhecido como evento métrico, que consiste não apenas na medida em si, mas também no momento em que ela foi capturada e nos metadados associados.
+Métricas são uma representação numérica de dados medidos em intervalos de tempo.
+
+As métricas economizam tempo porque podem ser facilmente correlacionadas entre os componentes da aplicação/infraestrutura para fornecer uma visão abrangente da integridade e do desempenho do sistema. Também permitem uma pesquisa mais fácil e uma retenção estendida de dados.
 
 <br>
 
 ```bash
 avg(rate(node_cpu{job="default/node-exporter",mode="idle"}[1m]))
 ```
+
+Outros exemplos:
+
+- Taxa de erros
+- Uso de CPU
+
+
 ---
 transition: slide-left
 level: 3
 ---
 
-# Rastros (traces)
-
-Os rastreamentos nos dão uma visão geral do que acontece quando uma solicitação é feita a uma aplicação. Quer seu aplicativo seja um monólito com um único banco de dados ou uma rede mesh sofisticada de serviços, os rastreamentos são essenciais para entender o “caminho” completo que uma solicitação percorre na sua aplicação.
+# Rastros (Traces)
+Os rastros nos dão uma visão geral do que acontece quando é feita uma requisição em uma aplicação.
+Independente da arquitetura da sua aplicação, os rastros são essenciais para entender o caminho completo
+das requisições na aplicação.
 
 ## Spans 
-A span represents a unit of work or operation. Spans are the building blocks of Traces.
+Um Span representa uma unidade de trabalho (ou operação).   
+Spans são os blocos que compõem os rastros.
 
-```json {maxHeight:'100px'}
-{
-  "name": "hallo",
-  "context": {
-    "trace_id": "0x5b8aa5a2d2c872e8321cf37308d69df2",
-    "span_id": "0x051581bf3cb55c13"
-  },
-  "start_time": "2022-04-29T18:52:58.114201Z",
-  "end_time": "2022-04-29T18:52:58.114687Z",
-  "events": [
-    {
-      "name": "Guten Morgen!",
-      "timestamp": "2022-04-29T18:52:58.114561Z",
-  ....
+<style>
+  img {
+  display: block;
+  margin: auto;
 
-```
+}
+</style>
+
+![otel logo](/public/trace.png){width=39%}
+
 
 ---
 transition: slide-left
@@ -171,7 +199,6 @@ layout: section
 level: 2
 ---
 
-
 # Projeto OpenTelemetry (OTEL)
 
 <style>
@@ -182,21 +209,25 @@ level: 2
 }
 </style>
 
-![otel logo](/public/otel-logo.png){width=34%}
+![otel logo](/public/otel-logo.png){width=22%}
 
 ---
 transition: slide-left
 level: 2
 ---
 
-O OpenTelemetry é um **framework de Observabilidade** projetado para **criar e gerenciar dados de telemetria**, como rastros, métricas e logs. Por design, o OpenTelemetry é **agnóstico a fornecedor e ferramenta**, o que significa que pode ser usado com grande variedade de backends de Observabilidade.
+O OpenTelemetry, também conhecido como Otel é um **framework de Observabilidade** projetado para **criar e gerenciar dados de telemetria**, como rastros, métricas e logs. Por design, o OpenTelemetry é **agnóstico a fornecedor e ferramenta**, o que significa que pode ser usado com grande variedade de backends de Observabilidade.
 
-O OpenTelemetry satisfaz a necessidade de observabilidade ao mesmo tempo que segue dois princípios fundamentais:
+O OpenTelemetry atende a necessidade de observabilidade ao mesmo tempo que segue dois princípios fundamentais:
 
-- Você possui os dados que você gera. Não há dependência de fornecedor (o famoso vendor lock-in).
-- Você só precisa aprender um único conjunto de APIs e convenções.
+- Os dados que você gera são seus. Não há dependência de fornecedor (o famoso vendor lock-in).
+- Você **só** precisa aprender um único conjunto de APIs e convenções.
 
 <br>
+
+Atualmente, o Otel tem compatibilidade com [mais de 40 fornecedores](https://opentelemetry.io/ecosystem/vendors/) de plataformas de Observabilidade
+integrado com muitas bibliotecas e serviços e com um grande número de usuários.
+
 <br>
 <br>
 
@@ -232,10 +263,9 @@ level: 3
 
 <br>
 
-- Especificação para todos os componentes
-- Collector
-- Implementações de API e SDK específicas para cada linguagem
-- Outras ferramentas, como Operator do Kubernetes, Helm Charts e outros recursos para FaaS
+- Especificação para todos os componentes (API, SDK e Dados)
+- Collector (receber, processar e exportar dados de telemetria)
+- Implementações de API e SDK específicas para cada linguagem (.NET, Java, Javascript, PHP, Python...)
 
 ---
 transition: slide-left
@@ -283,16 +313,15 @@ Diferente de outras ferramentas, o Loki indexa apenas os metadados dos logs (lab
 
 </footer>
 
-
 ---
 transition: slide-left
 level: 3
 ---
 
 # Grafana
-Visualização dos dados, faz parte da stack opensource da Grafana Labs
 
-<br>
+Grafana é uma ferramenta de visualização que permite que você faça consultas, visualize, crie alertas e explore suas métricas, rastros e logs 
+onde quer que estejam armazenados.
 
 <style>
   img {
@@ -301,7 +330,7 @@ Visualização dos dados, faz parte da stack opensource da Grafana Labs
 }
 </style>
 
-![grafana](/public/grafana-dashboard.png){width=76%}
+![grafana](/public/grafana-dashboard.png){width=65%}
 
 [https://grafana.com/docs/grafana/](https://grafana.com/docs/grafana/latest/)
 
@@ -312,7 +341,7 @@ level: 3
 ---
 
 # Tempo
-Backend para rastreamento distribuido, faz parte da stack opensource da Grafana Labs
+Backend para rastreamento distribuído, otimizado para custos e tem como pre-requisito apenas um armazenamento de objetos para funcionar.
 
 <style>
   img {
@@ -322,8 +351,6 @@ Backend para rastreamento distribuido, faz parte da stack opensource da Grafana 
 </style>
 
 ![tempo](/public/tempo.png){width=76%}
-
-<br>
 
 <footer>
 
@@ -337,7 +364,7 @@ level: 3
 ---
 
 # Mimir
-Armazenamento de métricas, faz parte da stack opensource da Grafana Labs.
+Solução para armazenamento escalável e de longo prazo para métricas.
 
 <style>
   img {
@@ -362,8 +389,8 @@ level: 3
 ---
 
 # Beyla
-Auto instrumentação baseada em eBPF, faz parte da stack opensource da Grafana Labs
-
+Ferramenta para auto instrumentação baseada em eBPF, com suporte para muitas linguagens, como Go, C/C++, Rust, Python, Ruby, Java.
+Todos os dados capturados são feitos sem nenhuma alteração no código da aplicação ou outra configuração.
 
 <style>
   img {
@@ -372,7 +399,7 @@ Auto instrumentação baseada em eBPF, faz parte da stack opensource da Grafana 
 }
 </style>
 
-![beyla](/public/beyla.png){width=74%}
+![beyla](/public/beyla.png){width=64%}
 
 <footer>
 
@@ -403,9 +430,20 @@ hideInToc: true
 level: 3
 ---
 
-# Prometheus
+<br>
+
 O Prometheus é um conjunto de ferramentas de monitoramento e alerta de código aberto que cresceu em popularidade junto com o crescimento do Kubernetes.
 
+<br>
+
+Funcionalidades:
+
+- Modelo de dados multi dimensional com dados de série temporal (time serie) identificados pelo nome da métrica e pares de chave/valor
+- Uma linguagem para consulta das métricas: PromQL
+- A coleta dos dados acontece por meio de um modelo pull via HTTP (para coleta via push é feito via um Gateway intermediário)
+
+<br>
+<br>
 
 <footer>
 
@@ -413,6 +451,57 @@ O Prometheus é um conjunto de ferramentas de monitoramento e alerta de código 
 
 </footer>
 
+---
+transition: slide-left
+hideInToc: true
+level: 3
+---
+
+# Componentes
+
+Componentes (sendo que alguns são opcionais):
+
+- Servidor Principal, responsável por fazer scrape e armazenar os dados time series
+- Bibliotecas clientes, para instrumentar as aplicações
+- Push Gateway, para jobs efêmeros (e batchs) expor métricas
+- Exporters, para ajudar a exportar métricas de serviços terceiros para o Prometheus
+- Alert Manager, para gerenciamento de alertas a partir do Prometheus
+
+<br>
+<br>
+
+<footer>
+
+[https://prometheus.io/docs/introduction/overview/](https://prometheus.io/docs/introduction/overview/)
+
+</footer>
+
+---
+transition: slide-left
+hideInToc: true
+level: 3
+---
+
+<br>
+<br>
+<br>
+
+
+
+Para mais ferramentas, recomendo dar uma olhada no landscape da CNCF [aqui](https://landscape.cncf.io/?group=projects-and-products&view-mode=grid&tag=observability)!
+
+---
+transition: slide-left
+level: 1
+---
+
+# Últimas Considerações
+
+- Observabilidade é diferente de monitoramento
+- Além das ferramentas mencionadas existem muitas outras (muitas não sendo opensources)
+- Entenda bem suas aplicações e o que precisa de telemetria antes de implementar uma ferramenta (ou stack de ferramenta)
+- Observabilidade pode ser cara/custosa
+- Observabilidade é uma jornada, vai muito além de logs, rastros e métricas
 
 ---
 transition: slide-left
