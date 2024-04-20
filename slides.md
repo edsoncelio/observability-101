@@ -108,9 +108,9 @@ level: 1
 hideInToc: true
 ---
 
-"Observabilidade é a capacidade de medir os estados internos de um sistema examinando suas saídas."
+Observabilidade é a capacidade de medir os estados internos de um sistema examinando suas saídas.
 
-"A observabilidade nos permite compreender um sistema a partir do exterior, permitindo fazer perguntas sobre esse sistema sem conhecer o seu funcionamento interno. Além disso, permite solucionar facilmente e lidar com novos problemas e ajuda a responder à pergunta: “Por que isso está acontecendo?"
+A observabilidade nos permite compreender um sistema a partir do exterior, permitindo fazer perguntas sobre esse sistema sem conhecer o seu funcionamento interno. Além disso, permite solucionar facilmente e lidar com novos problemas e ajuda a responder à pergunta: “Por que isso está acontecendo?
 
 ---
 transition: slide-left
@@ -199,7 +199,7 @@ layout: section
 level: 2
 ---
 
-# Projeto OpenTelemetry (OTEL)
+# OpenTelemetry (OTEL)
 
 <style>
   img {
@@ -509,10 +509,10 @@ level: 1
 ---
 
 # Por Onde Começar a Aprender Mais Sobre?
-- https://dosedetelemetria.com/
-- https://opentelemetry.io/docs/what-is-opentelemetry/
-- https://www.oreilly.com/library/view/observability-engineering/9781492076438/
-
+- Projeto Dose de Telemetria: https://dosedetelemetria.com/
+- Documentações do OpenTelemetry: https://opentelemetry.io/docs/what-is-opentelemetry/
+- Livro "Observability Engineering": https://www.oreilly.com/library/view/observability-engineering/9781492076438/
+- Livro "Distributed Systems Observability": https://www.oreilly.com/library/view/distributed-systems-observability/9781492033431/
 ---
 layout: center
 class: text-center
