@@ -186,6 +186,17 @@ Spans são os blocos que compõem os rastros.
 
 ---
 transition: slide-left
+level: 3
+---
+
+Existem outros dados de telemetria importantes que valem a pena serem citados:
+
+- Eventos
+- Perfils (profilling)
+- Erros
+
+---
+transition: slide-left
 layout: section
 level: 1
 ---
