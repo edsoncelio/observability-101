@@ -239,6 +239,20 @@ integrado com muitas bibliotecas e serviços e com um grande número de usuário
 
 ---
 transition: slide-left
+hideInToc: true
+level: 3
+---
+
+## Componentes
+
+<br>
+
+- Especificação para todos os componentes (API, SDK e Dados)
+- Collector (receber, processar e exportar dados de telemetria)
+- Implementações de API e SDK específicas para cada linguagem (.NET, Java, Javascript, PHP, Python...)
+
+---
+transition: slide-left
 level: 3
 ---
 
@@ -252,20 +266,6 @@ level: 3
 </style>
 
 ![otel](/public/otel.png){width=75%}
-
----
-transition: slide-left
-hideInToc: true
-level: 3
----
-
-## Componentes
-
-<br>
-
-- Especificação para todos os componentes (API, SDK e Dados)
-- Collector (receber, processar e exportar dados de telemetria)
-- Implementações de API e SDK específicas para cada linguagem (.NET, Java, Javascript, PHP, Python...)
 
 ---
 transition: slide-left
