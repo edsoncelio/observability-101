@@ -261,9 +261,22 @@ level: 3
 ---
 
 # Loki
-Indexador de logs, faz parte da stack opensource da Grafana Labs
+O Loki é um agregador de logs com alta disponibilidade, multi-tenant e escalável inspirado no Prometheus.
+Foi projetado para ser econômico e fácil de manter.
+
+Diferente de outras ferramentas, o Loki indexa apenas os metadados dos logs (labels).
 
 
+<style>
+  img {
+  display: block;
+  margin: auto;
+}
+</style>
+
+![loki](/public/loki.png){width=76%}
+
+<br>
 <footer>
 
 [https://grafana.com/docs/loki/](https://grafana.com/docs/loki/latest/)
@@ -278,6 +291,7 @@ level: 3
 
 # Grafana
 Visualização dos dados, faz parte da stack opensource da Grafana Labs
+
 <br>
 
 <style>
@@ -300,6 +314,16 @@ level: 3
 # Tempo
 Backend para rastreamento distribuido, faz parte da stack opensource da Grafana Labs
 
+<style>
+  img {
+  display: block;
+  margin: auto;
+}
+</style>
+
+![tempo](/public/tempo.png){width=76%}
+
+<br>
 
 <footer>
 
@@ -313,7 +337,18 @@ level: 3
 ---
 
 # Mimir
-Armazenamento de métricas, faz parte da stack opensource da Grafana Labs
+Armazenamento de métricas, faz parte da stack opensource da Grafana Labs.
+
+<style>
+  img {
+  display: block;
+  margin: auto;
+}
+</style>
+
+![tempo](/public/mimir.svg){width=76%}
+
+<br>
 
 <footer>
 
@@ -328,6 +363,16 @@ level: 3
 
 # Beyla
 Auto instrumentação baseada em eBPF, faz parte da stack opensource da Grafana Labs
+
+
+<style>
+  img {
+  display: block;
+  margin: auto;
+}
+</style>
+
+![beyla](/public/beyla.png){width=74%}
 
 <footer>
 
@@ -359,7 +404,7 @@ level: 3
 ---
 
 # Prometheus
-Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud.
+O Prometheus é um conjunto de ferramentas de monitoramento e alerta de código aberto que cresceu em popularidade junto com o crescimento do Kubernetes.
 
 
 <footer>
